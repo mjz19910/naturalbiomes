@@ -20,7 +20,7 @@ minetest.register_node("naturalbiomes:outback_rock", {
 	description = S("Outback Rock"),
 	tiles = {"naturalbiomes_outback_rock.png"},
 	groups = {cracky = 3, stone = 1},
-legacy_mineral = true,
+	legacy_mineral = true,
 	sounds = default.node_sound_stone_defaults(),
 })
 
@@ -32,20 +32,20 @@ minetest.register_node("naturalbiomes:outback_ground", {
 })
 
 minetest.register_biome({
-    name = "naturalbiomes:outback",
-    node_top = "naturalbiomes:outback_litter",
-    depth_top = 1,
-    node_filler = "naturalbiomes:outback_ground",
-    depth_filler = 50,
-		node_riverbed = "default:clay",
-		depth_riverbed = 2,
-		node_dungeon = "default:sandstone",
-		node_dungeon_alt = "default:desert_stonebrick",
-		node_dungeon_stair = "stairs:stair_desert_stone",
-    y_max = 40,
-    y_min = 3,
-    heat_point = 82,
-    humidity_point = 32,
+	name = "naturalbiomes:outback",
+	node_top = "naturalbiomes:outback_litter",
+	depth_top = 1,
+	node_filler = "naturalbiomes:outback_ground",
+	depth_filler = 50,
+	node_riverbed = "default:clay",
+	depth_riverbed = 2,
+	node_dungeon = "default:sandstone",
+	node_dungeon_alt = "default:desert_stonebrick",
+	node_dungeon_stair = "stairs:stair_desert_stone",
+	y_max = 40,
+	y_min = 3,
+	heat_point = 82,
+	humidity_point = 32,
 })
 
 -- Schematics
@@ -61,8 +61,8 @@ minetest.register_decoration({
 	y_max = 31,
 	y_min = 1,
 	schematic = minetest.get_modpath("naturalbiomes").."/schematics/naturalbiomes_outback_tree1_0_90.mts",
-flags = "place_center_x, place_center_z",
-rotation = "random",
+	flags = "place_center_x, place_center_z",
+	rotation = "random",
 })
 
 minetest.register_decoration({
@@ -76,8 +76,8 @@ minetest.register_decoration({
 	y_max = 31,
 	y_min = 1,
 	schematic = minetest.get_modpath("naturalbiomes").."/schematics/naturalbiomes_outback_tree2_0_90.mts",
-flags = "place_center_x, place_center_z",
-rotation = "random",
+	flags = "place_center_x, place_center_z",
+	rotation = "random",
 })
 
 minetest.register_decoration({
@@ -87,7 +87,7 @@ minetest.register_decoration({
 	place_offset_y = 1,
 	sidelen = 16,
 	noise_params = {
-offset = -0.004,
+		offset = -0.004,
 		scale = 0.01,
 		spread = {x = 100, y = 100, z = 100},
 		seed = 391,
@@ -156,7 +156,7 @@ minetest.register_decoration({
 	place_offset_y = 1,
 	sidelen = 16,
 	noise_params = {
-offset = -0.004,
+		offset = -0.004,
 		scale = 0.01,
 		spread = {x = 100, y = 100, z = 100},
 		seed = 391,
@@ -181,16 +181,16 @@ local function grow_new_outback_tree(pos)
 		minetest.get_node_timer(pos):start(math.random(240, 600))
 		return
 	end
-minetest.remove_node(pos)
+	minetest.remove_node(pos)
 	minetest.place_schematic({x = pos.x - 4, y = pos.y - 0, z = pos.z - 4}, modpath.."/schematics/naturalbiomes_outback_tree1_0_90.mts", "0", nil, false)
-end 
+end
 
 -- outback trunk
 minetest.register_node("naturalbiomes:outback_trunk", {
 	description = S("Outback Eucalyptus Trunk"),
 	tiles = {
-		"naturalbiomes_outbackeukalyptus_trunk_top.png",
-		"naturalbiomes_outbackeukalyptus_trunk_top.png",
+		"naturalbiomes_outbackeucalyptus_trunk_top.png",
+		"naturalbiomes_outbackeucalyptus_trunk_top.png",
 		"naturalbiomes_outbackeucalyptus_trunk.png"
 	},
 	groups = {tree = 1, choppy = 2, oddly_breakable_by_hand = 1, flammable = 2},
@@ -202,7 +202,7 @@ minetest.register_node("naturalbiomes:outback_trunk", {
 -- outback wood
 minetest.register_node("naturalbiomes:outback_wood", {
 	description = S("Outback Eucalyptus Wood"),
-	tiles = {"naturalbiomes_outback_eukalyptus_wood.png"},
+	tiles = {"naturalbiomes_outback_eucalyptus_wood.png"},
 	is_ground_content = false,
 	groups = {wood = 1, choppy = 2, oddly_breakable_by_hand = 1, flammable = 3},
 	sounds = default.node_sound_wood_defaults(),
@@ -217,8 +217,8 @@ minetest.register_node("naturalbiomes:outback_leaves", {
   description = S("Outback Eucalyptus Leaves"),
   drawtype = "allfaces_optional",
   waving = 1,
-  tiles = {"naturalbiomes_outbackeukalyptus_leaves.png"},
-  special_tiles = {"naturalbiomes_outbackeukalyptus_leaves.png"},
+  tiles = {"naturalbiomes_outbackeucalyptus_leaves.png"},
+  special_tiles = {"naturalbiomes_outbackeucalyptus_leaves.png"},
   paramtype = "light",
   is_ground_content = false,
   groups = {snappy = 3, leafdecay = 3, flammable = 2, leaves = 1, winleafdecay = 3},
@@ -238,16 +238,15 @@ minetest.register_node("naturalbiomes:outback_leaves", {
     }
   },
   sounds = default.node_sound_leaves_defaults(),
-
   after_place_node = default.after_place_leaves,
 })
 
 minetest.register_node("naturalbiomes:outback_sapling", {
   description = S("Outback Eucalyptus Sapling"),
   drawtype = "plantlike",
-  tiles = {"naturalbiomes_outbackeukaplyptus_sapling.png"},
-  inventory_image = "naturalbiomes_outbackeukaplyptus_sapling.png",
-  wield_image = "naturalbiomes_outbackeukaplyptus_sapling.png",
+  tiles = {"naturalbiomes_outbackeucalyptus_sapling.png"},
+  inventory_image = "naturalbiomes_outbackeucalyptus_sapling.png",
+  wield_image = "naturalbiomes_outbackeucalyptus_sapling.png",
   paramtype = "light",
   sunlight_propagates = true,
   walkable = false,
@@ -272,51 +271,50 @@ minetest.register_node("naturalbiomes:outback_sapling", {
 			{x = 1, y = 1, z = 1},
 			-- maximum interval of interior volume check
 			2)
-
-    return itemstack
-  end,
+		return itemstack
+	end,
 })
 
 
-    stairs.register_stair_and_slab(
-      "naturalbiomes_outback_eukalyptus_wood",
-      "naturalbiomes:outback_wood",
-      {choppy = 2, oddly_breakable_by_hand = 1, flammable = 3},
-      {"naturalbiomes_outback_eukalyptus_wood.png"},
-      S("Outback Eucalyptus Stair"),
-      S("Outback Eucalyptus Slab"),
-      default.node_sound_wood_defaults()
-    )
+stairs.register_stair_and_slab(
+	"naturalbiomes_outback_eucalyptus_wood",
+	"naturalbiomes:outback_wood",
+	{choppy = 2, oddly_breakable_by_hand = 1, flammable = 3},
+	{"naturalbiomes_outback_eucalyptus_wood.png"},
+	S("Outback Eucalyptus Stair"),
+	S("Outback Eucalyptus Slab"),
+	default.node_sound_wood_defaults()
+)
 
-    stairs.register_stair_and_slab(
-      "naturalbiomes_outbackeucalyptus_trunk",
-      "naturalbiomes:outback_trunk",
-      {choppy = 2, oddly_breakable_by_hand = 1, flammable = 3},
-      {"naturalbiomes_outbackeukalyptus_trunk_top.png", "naturalbiomes_outbackeukalyptus_trunk_top.png", "naturalbiomes_outbackeucalyptus_trunk.png"},
-      S("Outback Eucalyptus Trunk Stair"),
-      S("Outback Eucalyptus Trunk Slab"),
-      default.node_sound_wood_defaults()
-    )
+stairs.register_stair_and_slab(
+	"naturalbiomes_outbackeucalyptus_trunk",
+	"naturalbiomes:outback_trunk",
+	{choppy = 2, oddly_breakable_by_hand = 1, flammable = 3},
+	{"naturalbiomes_outbackeucalyptus_trunk_top.png", "naturalbiomes_outbackeucalyptus_trunk_top.png", "naturalbiomes_outbackeucalyptus_trunk.png"},
+	S("Outback Eucalyptus Trunk Stair"),
+	S("Outback Eucalyptus Trunk Slab"),
+	default.node_sound_wood_defaults()
+)
 
-  doors.register_fencegate(
-    "naturalbiomes:gate_outback_wood",
-    {
-      description = S("Outback Eucalyptus Wood Fence Gate"),
-      texture = "naturalbiomes_outback_eukalyptus_wood.png",
-      material = "naturalbiomes:outback_wood",
-      groups = {choppy = 3, oddly_breakable_by_hand = 2, flammable = 3},
-      sounds = default.node_sound_wood_defaults()
-    }
-  )
+doors.register_fencegate(
+	"naturalbiomes:gate_outback_wood",
+	{
+		description = S("Outback Eucalyptus Wood Fence Gate"),
+		texture = "naturalbiomes_outback_eucalyptus_wood.png",
+		material = "naturalbiomes:outback_wood",
+		groups = {choppy = 3, oddly_breakable_by_hand = 2, flammable = 3},
+		sounds = default.node_sound_wood_defaults()
+	}
+)
 
 
 default.register_fence(
   "naturalbiomes:fence_outback_wood",
   {
     description = S("Outback Eucalyptus Fence"),
-    texture = "naturalbiomes_eukalyptus_fence_wood.png",
-    inventory_image = "default_fence_overlay.png^naturalbiomes_outback_eukalyptus_wood.png^default_fence_overlay.png^[makealpha:255,126,126",
-    wield_image = "default_fence_overlay.png^naturalbiomes_outback_eukalyptus_wood.png^default_fence_overlay.png^[makealpha:255,126,126",
+    texture = "naturalbiomes_eucalyptus_fence_wood.png",
+    inventory_image = "default_fence_overlay.png^naturalbiomes_outback_eucalyptus_wood.png^default_fence_overlay.png^[makealpha:255,126,126",
+    wield_image = "default_fence_overlay.png^naturalbiomes_outback_eucalyptus_wood.png^default_fence_overlay.png^[makealpha:255,126,126",
     material = "naturalbiomes:outback_wood",
     groups = {choppy = 2, oddly_breakable_by_hand = 2, flammable = 2},
     sounds = default.node_sound_wood_defaults()
@@ -327,10 +325,10 @@ default.register_fence_rail(
   "naturalbiomes:fence_rail_outback_wood",
   {
     description = S("Outback Eucalyptus Fence Rail"),
-    texture = "naturalbiomes_eukalyptus_fence_wood.png",
-    inventory_image = "default_fence_rail_overlay.png^naturalbiomes_outback_eukalyptus_wood.png^" ..
+    texture = "naturalbiomes_eucalyptus_fence_wood.png",
+    inventory_image = "default_fence_rail_overlay.png^naturalbiomes_outback_eucalyptus_wood.png^" ..
       "default_fence_rail_overlay.png^[makealpha:255,126,126",
-    wield_image = "default_fence_rail_overlay.png^naturalbiomes_outback_eukalyptus_wood.png^" ..
+    wield_image = "default_fence_rail_overlay.png^naturalbiomes_outback_eucalyptus_wood.png^" ..
       "default_fence_rail_overlay.png^[makealpha:255,126,126",
     material = "naturalbiomes:outback_wood",
     groups = {choppy = 2, oddly_breakable_by_hand = 2, flammable = 2},
@@ -374,7 +372,7 @@ local function grow_new_outback_bush(pos)
 	end
 minetest.remove_node(pos)
 	minetest.place_schematic({x = pos.x - 2, y = pos.y - 0, z = pos.z - 2}, modpath.."/schematics/naturalbiomes_outback_bush_small2_0_270.mts", "0", nil, false)
-end 
+end
 
 minetest.register_node("naturalbiomes:outback_bush_stem", {
 	description = S("Outback Bush Stem"),
@@ -408,7 +406,7 @@ minetest.register_node("naturalbiomes:outback_bush_leaves", {
 	},
 	sounds = default.node_sound_leaves_defaults(),
 
-	after_place_node = after_place_leaves,
+	after_place_node = default.after_place_leaves,
 })
 
 minetest.register_node("naturalbiomes:outback_bush_sapling", {

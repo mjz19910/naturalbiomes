@@ -141,7 +141,7 @@ local function grow_new_palm_tree(pos)
 	end
 minetest.remove_node(pos)
 	minetest.place_schematic({x = pos.x - 4, y = pos.y - 0, z = pos.z - 4}, modpath.."/schematics/naturalbiomes_cocopalm_tree_0_270.mts", "0", nil, false)
-end 
+end
 
 
 -- palm trunk
@@ -324,7 +324,7 @@ local function grow_new_palm_bush(pos)
 	end
 minetest.remove_node(pos)
 	minetest.place_schematic({x = pos.x - 1, y = pos.y - 0, z = pos.z - 1}, modpath.."/schematics/naturalbiomes_beach_bush_0_270.mts", "0", nil, false)
-end 
+end
 
 	minetest.register_decoration({
 		name = "naturalbiomes:beach_bush",
@@ -379,7 +379,7 @@ minetest.register_node("naturalbiomes:beach_bush_leaves", {
 	},
 	sounds = default.node_sound_leaves_defaults(),
 
-	after_place_node = after_place_leaves,
+	after_place_node = default.after_place_leaves,
 })
 
 minetest.register_node("naturalbiomes:beach_bush_sapling", {

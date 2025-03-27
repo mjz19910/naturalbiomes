@@ -46,7 +46,7 @@ local function grow_new_bamboo_tree(pos)
 	end
 minetest.remove_node(pos)
 	minetest.place_schematic({x = pos.x - 3, y = pos.y - 0, z = pos.z - 3}, modpath.."/schematics/naturalbiomes_bambootree_large_0_270.mts", "0", nil, false)
-end 
+end
 
 -- bamboo trunk
 minetest.register_node("naturalbiomes:bamboo_trunk", {
@@ -80,8 +80,8 @@ minetest.register_node("naturalbiomes:bamboo_leaves", {
   description = S("Bamboo Leaves"),
   drawtype = "allfaces_optional",
   waving = 1,
-  tiles = {"naturalbiomes_Bambooforest_bamboo_leaves.png"},
-  special_tiles = {"naturalbiomes_Bambooforest_bamboo_leaves.png"},
+  tiles = {"naturalbiomes_bambooforest_bamboo_leaves.png"},
+  special_tiles = {"naturalbiomes_bambooforest_bamboo_leaves.png"},
   paramtype = "light",
   is_ground_content = false,
   groups = {snappy = 3, leafdecay = 3, flammable = 2, leaves = 1, winleafdecay = 3},
@@ -301,7 +301,7 @@ minetest.register_node("naturalbiomes:bambooforest_rock", {
 	})
 
 minetest.register_node("naturalbiomes:bambooforest_groundgrass", {
-	    description = S"Babmooforest Gorund Grass",
+	    description = S"Bamboo Forest Ground Grass",
 	    drawtype = "plantlike",
 	    waving = 1,
 	    visual_scale = 2.0,
@@ -340,7 +340,7 @@ minetest.register_node("naturalbiomes:bambooforest_groundgrass", {
 	})
 
 minetest.register_node("naturalbiomes:bambooforest_groundgrass2", {
-	    description = S"Babmooforest Gorund Grass",
+	    description = S"Bamboo Forest Ground Grass",
 	    drawtype = "plantlike",
 	    waving = 1,
 	    visual_scale = 2.0,
@@ -373,7 +373,7 @@ local function grow_new_banana_tree(pos)
 	end
 minetest.remove_node(pos)
 	minetest.place_schematic({x = pos.x - 4, y = pos.y - 0, z = pos.z - 3}, modpath.."/schematics/naturalbiomes_banana_palm_0_90.mts", "0", nil, false)
-end 
+end
 
 -- banana trunk
 minetest.register_node("naturalbiomes:banana_trunk", {

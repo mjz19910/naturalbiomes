@@ -6,14 +6,14 @@ default.register_leafdecay({
 })
 
 default.register_leafdecay({
-	trunks = {"naturalbiomes:alppine1_trunk"},
-	leaves = {"naturalbiomes:alppine1_leaves"},
+	trunks = {"naturalbiomes:alpine1_trunk"},
+	leaves = {"naturalbiomes:alpine1_leaves"},
 	radius = 6
 })
 
 default.register_leafdecay({
-	trunks = {"naturalbiomes:alppine2_trunk"},
-	leaves = {"naturalbiomes:alppine2_leaves"},
+	trunks = {"naturalbiomes:alpine2_trunk"},
+	leaves = {"naturalbiomes:alpine2_leaves"},
 	radius = 6
 })
 

@@ -568,7 +568,7 @@ local function grow_new_blackberry_bush(pos)
 	end
 minetest.remove_node(pos)
 	minetest.place_schematic({x = pos.x - 2, y = pos.y - 0, z = pos.z - 2}, modpath.."/schematics/naturalbiomes_bushland_blackberrybush.mts", "0", nil, false)
-end 
+end
 
 minetest.register_node("naturalbiomes:bushland_blackberry_stem", {
 	description = S("Blackberry Bush Stem"),
@@ -603,7 +603,7 @@ minetest.register_node("naturalbiomes:bushland_blackberry_leaves2", {
 	},
 	sounds = default.node_sound_leaves_defaults(),
 
-	after_place_node = after_place_leaves,
+	after_place_node = default.after_place_leaves,
 })
 
 minetest.register_node("naturalbiomes:bushland_blackberry_leaves", {
@@ -622,7 +622,7 @@ minetest.register_node("naturalbiomes:bushland_blackberry_leaves", {
 	},
 	sounds = default.node_sound_leaves_defaults(),
 
-	after_place_node = after_place_leaves,
+	after_place_node = default.after_place_leaves,
 })
 
 minetest.register_node("naturalbiomes:bushland_blackberrybush_sapling", {
@@ -696,9 +696,9 @@ local function grow_new_wildrose_bush(pos)
 		minetest.get_node_timer(pos):start(math.random(240, 600))
 		return
 	end
-minetest.remove_node(pos)
+	minetest.remove_node(pos)
 	minetest.place_schematic({x = pos.x - 1, y = pos.y - 0, z = pos.z - 1}, modpath.."/schematics/naturalbiomes_bushland_wildrosebush.mts", "0", nil, false)
-end 
+end
 
 minetest.register_node("naturalbiomes:bushland_wildrose_stem", {
 	description = S("Wildrose Bush Stem"),
@@ -734,7 +734,7 @@ minetest.register_node("naturalbiomes:bushland_wildrose_leaves2", {
 	},
 	sounds = default.node_sound_leaves_defaults(),
 
-	after_place_node = after_place_leaves,
+	after_place_node = default.after_place_leaves,
 })
 
 minetest.register_node("naturalbiomes:bushland_wildrose_leaves", {
@@ -754,7 +754,7 @@ minetest.register_node("naturalbiomes:bushland_wildrose_leaves", {
 	},
 	sounds = default.node_sound_leaves_defaults(),
 
-	after_place_node = after_place_leaves,
+	after_place_node = default.after_place_leaves,
 })
 
 minetest.register_node("naturalbiomes:bushland_wildrosebush_sapling", {
@@ -829,7 +829,7 @@ local function grow_new_hazelnut_bush(pos)
 	end
 minetest.remove_node(pos)
 	minetest.place_schematic({x = pos.x - 3, y = pos.y - 0, z = pos.z - 3}, modpath.."/schematics/naturalbiomes_bushland_hazelnutbush.mts", "0", nil, false)
-end 
+end
 
 minetest.register_node("naturalbiomes:bushland_hazelnut_stem", {
 	description = S("Hazelnut Bush Stem"),
@@ -865,7 +865,7 @@ minetest.register_node("naturalbiomes:bushland_hazelnut_leaves2", {
 	},
 	sounds = default.node_sound_leaves_defaults(),
 
-	after_place_node = after_place_leaves,
+	after_place_node = default.after_place_leaves,
 })
 
 minetest.register_node("naturalbiomes:bushland_hazelnut_leaves", {
@@ -885,7 +885,7 @@ minetest.register_node("naturalbiomes:bushland_hazelnut_leaves", {
 	},
 	sounds = default.node_sound_leaves_defaults(),
 
-	after_place_node = after_place_leaves,
+	after_place_node = default.after_place_leaves,
 })
 
 minetest.register_node("naturalbiomes:bushland_hazelnutbush_sapling", {
@@ -967,7 +967,7 @@ minetest.register_node("naturalbiomes:bushland_deadbush_leaves", {
 	},
 	sounds = default.node_sound_leaves_defaults(),
 
-	after_place_node = after_place_leaves,
+	after_place_node = default.after_place_leaves,
 })
 
 -- cracked hazelnut

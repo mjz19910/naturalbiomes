@@ -45,7 +45,7 @@ minetest.register_biome({
 -- Schematics
 
 minetest.register_decoration({
-	name = "naturalbiomes:alppine1_tree",
+	name = "naturalbiomes:alpine1_tree",
 	deco_type = "schematic",
 	place_on = {"naturalbiomes:alpine_litter"},
 	place_offset_y = 0,
@@ -60,7 +60,7 @@ rotation = "random",
 })
 
 minetest.register_decoration({
-	name = "naturalbiomes:alppine2_tree",
+	name = "naturalbiomes:alpine2_tree",
 	deco_type = "schematic",
 	place_on = {"naturalbiomes:alpine_litter"},
 	place_offset_y = 0,
@@ -100,18 +100,18 @@ offset = -0.004,
 
 -- New pine tree
 
-local function grow_new_alppine1_tree(pos)
+local function grow_new_alpine1_tree(pos)
 	if not default.can_grow(pos) then
 		-- try a bit later again
 		minetest.get_node_timer(pos):start(math.random(240, 600))
 		return
 	end
-minetest.remove_node(pos)
+	minetest.remove_node(pos)
 	minetest.place_schematic({x = pos.x - 5, y = pos.y - 0, z = pos.z - 5}, modpath.."/schematics/naturalbiomes_alpine_pine1_0_90.mts", "0", nil, false)
-end 
+end
 
 -- Pine1 trunk
-minetest.register_node("naturalbiomes:alppine1_trunk", {
+minetest.register_node("naturalbiomes:alpine1_trunk", {
 	description = S("Silver Fir Trunk"),
 	tiles = {
 		"naturalbiomes_alpine_pine1_trunk_top.png",
@@ -125,7 +125,7 @@ minetest.register_node("naturalbiomes:alppine1_trunk", {
 })
 
 -- Pine wood
-minetest.register_node("naturalbiomes:alppine1_wood", {
+minetest.register_node("naturalbiomes:alpine1_wood", {
 	description = S("Silver Fir Wood"),
 	tiles = {"naturalbiomes_alpine_pine1_wood.png"},
 	is_ground_content = false,
@@ -134,11 +134,16 @@ minetest.register_node("naturalbiomes:alppine1_wood", {
 })
 
 minetest.register_craft({
-	output = "naturalbiomes:alppine1_wood 4",
-	recipe = {{"naturalbiomes:alppine1_trunk"}}
+	output = "naturalbiomes:alpine1_wood 4",
+	recipe = {{"naturalbiomes:alpine1_trunk"}}
 })
-
-minetest.register_node("naturalbiomes:alppine1_leaves", {
+-- spell:disable
+minetest.register_alias("naturalbiomes:alppine1_trunk", "naturalbiomes:alpine1_trunk")
+minetest.register_alias("naturalbiomes:alppine1_leaves", "naturalbiomes:alpine1_leaves")
+minetest.register_alias("naturalbiomes:alppine2_trunk", "naturalbiomes:alpine2_trunk")
+minetest.register_alias("naturalbiomes:alppine2_leaves", "naturalbiomes:alpine2_leaves")
+-- spell:enable
+minetest.register_node("naturalbiomes:alpine1_leaves", {
   description = S("Silver Fir Leaves"),
   drawtype = "allfaces_optional",
   waving = 1,
@@ -152,13 +157,13 @@ minetest.register_node("naturalbiomes:alppine1_leaves", {
     items = {
       {
         -- player will get sapling with 1/50 chance
-        items = {'naturalbiomes:alppine1_sapling'},
+        items = {'naturalbiomes:alpine1_sapling'},
         rarity = 50,
       },
       {
         -- player will get leaves only if he get no saplings,
         -- this is because max_items is 1
-        items = {'naturalbiomes:alppine1_leaves'},
+        items = {'naturalbiomes:alpine1_leaves'},
       }
     }
   },
@@ -167,7 +172,7 @@ minetest.register_node("naturalbiomes:alppine1_leaves", {
   after_place_node = default.after_place_leaves,
 })
 
-minetest.register_node("naturalbiomes:alppine1_sapling", {
+minetest.register_node("naturalbiomes:alpine1_sapling", {
   description = S("Silver Fir Sapling"),
   drawtype = "plantlike",
   tiles = {"naturalbiomes_alpine_pine1_sapling.png"},
@@ -176,7 +181,7 @@ minetest.register_node("naturalbiomes:alppine1_sapling", {
   paramtype = "light",
   sunlight_propagates = true,
   walkable = false,
-  on_timer = grow_new_alppine1_tree,
+  on_timer = grow_new_alpine1_tree,
   selection_box = {
     type = "fixed",
     fixed = {-4 / 16, -0.5, -4 / 16, 4 / 16, 7 / 16, 4 / 16}
@@ -191,7 +196,7 @@ minetest.register_node("naturalbiomes:alppine1_sapling", {
 
   on_place = function(itemstack, placer, pointed_thing)
     itemstack = default.sapling_on_place(itemstack, placer, pointed_thing,
-      "naturalbiomes:alppine1_sapling",
+      "naturalbiomes:alpine1_sapling",
 			-- minp, maxp to be checked, relative to sapling pos
 			{x = -1, y = 0, z = -1},
 			{x = 1, y = 1, z = 1},
@@ -205,7 +210,7 @@ minetest.register_node("naturalbiomes:alppine1_sapling", {
 
     stairs.register_stair_and_slab(
       "naturalbiomes_alpine_pine1_wood",
-      "naturalbiomes:alppine1_wood",
+      "naturalbiomes:alpine1_wood",
       {choppy = 2, oddly_breakable_by_hand = 1, flammable = 3},
       {"naturalbiomes_alpine_pine1_wood.png"},
       S("Silver Fir Stair"),
@@ -215,7 +220,7 @@ minetest.register_node("naturalbiomes:alppine1_sapling", {
 
     stairs.register_stair_and_slab(
       "naturalbiomes_alpine_pine1_trunk",
-      "naturalbiomes:alppine1_trunk",
+      "naturalbiomes:alpine1_trunk",
       {choppy = 2, oddly_breakable_by_hand = 1, flammable = 3},
       {"naturalbiomes_alpine_pine1_trunk_top.png", "naturalbiomes_alpine_pine1_trunk_top.png", "naturalbiomes_alpine_pine1_trunk.png"},
       S("Silver Fir Trunk Stair"),
@@ -224,11 +229,11 @@ minetest.register_node("naturalbiomes:alppine1_sapling", {
     )
 
   doors.register_fencegate(
-    "naturalbiomes:gate_alppine1_wood",
+    "naturalbiomes:gate_alpine1_wood",
     {
       description = S("Silver Fir Wood Fence Gate"),
       texture = "naturalbiomes_alpine_pine1_wood.png",
-      material = "naturalbiomes:alppine1_wood",
+      material = "naturalbiomes:alpine1_wood",
       groups = {choppy = 3, oddly_breakable_by_hand = 2, flammable = 3},
       sounds = default.node_sound_wood_defaults()
     }
@@ -236,20 +241,20 @@ minetest.register_node("naturalbiomes:alppine1_sapling", {
 
 
 default.register_fence(
-  "naturalbiomes:fence_alppine1_wood",
+  "naturalbiomes:fence_alpine1_wood",
   {
     description = S("Silver Fir Fence"),
     texture = "naturalbiomes_pine_fence_wood.png",
     inventory_image = "default_fence_overlay.png^naturalbiomes_alpine_pine1_wood.png^default_fence_overlay.png^[makealpha:255,126,126",
     wield_image = "default_fence_overlay.png^naturalbiomes_alpine_pine1_wood.png^default_fence_overlay.png^[makealpha:255,126,126",
-    material = "naturalbiomes:alppine1_wood",
+    material = "naturalbiomes:alpine1_wood",
     groups = {choppy = 2, oddly_breakable_by_hand = 2, flammable = 2},
     sounds = default.node_sound_wood_defaults()
   }
 )
 
 default.register_fence_rail(
-  "naturalbiomes:fence_rail_alppine1_wood",
+  "naturalbiomes:fence_rail_alpine1_wood",
   {
     description = S("Silver Fir Fence Rail"),
     texture = "naturalbiomes_pine_fence_wood.png",
@@ -257,7 +262,7 @@ default.register_fence_rail(
       "default_fence_rail_overlay.png^[makealpha:255,126,126",
     wield_image = "default_fence_rail_overlay.png^naturalbiomes_alpine_pine1_wood.png^" ..
       "default_fence_rail_overlay.png^[makealpha:255,126,126",
-    material = "naturalbiomes:alppine1_wood",
+    material = "naturalbiomes:alpine1_wood",
     groups = {choppy = 2, oddly_breakable_by_hand = 2, flammable = 2},
     sounds = default.node_sound_wood_defaults()
   }
@@ -266,9 +271,9 @@ default.register_fence_rail(
 -- Tree generation
 --
 
--- New alppine2 tree
+-- New alpine2 tree
 
-local function grow_new_alppine2_tree(pos)
+local function grow_new_alpine2_tree(pos)
 	if not default.can_grow(pos) then
 		-- try a bit later again
 		minetest.get_node_timer(pos):start(math.random(240, 600))
@@ -276,10 +281,10 @@ local function grow_new_alppine2_tree(pos)
 	end
 minetest.remove_node(pos)
 	minetest.place_schematic({x = pos.x - 3, y = pos.y - 0, z = pos.z - 3}, modpath.."/schematics/naturalbiomes_alpine_pine2_0_90.mts", "0", nil, false)
-end 
+end
 
 -- Pine2 trunk
-minetest.register_node("naturalbiomes:alppine2_trunk", {
+minetest.register_node("naturalbiomes:alpine2_trunk", {
 	description = S("Jack Pine Trunk"),
 	tiles = {
 		"naturalbiomes_alpine_pine2_trunk_top.png",
@@ -293,7 +298,7 @@ minetest.register_node("naturalbiomes:alppine2_trunk", {
 })
 
 -- Pine2 wood
-minetest.register_node("naturalbiomes:alppine2_wood", {
+minetest.register_node("naturalbiomes:alpine2_wood", {
 	description = S("Jack Pine Wood"),
 	tiles = {"naturalbiomes_alpine_pine2_wood.png"},
 	is_ground_content = false,
@@ -302,11 +307,11 @@ minetest.register_node("naturalbiomes:alppine2_wood", {
 })
 
 minetest.register_craft({
-	output = "naturalbiomes:alppine2_wood 4",
-	recipe = {{"naturalbiomes:alppine2_trunk"}}
+	output = "naturalbiomes:alpine2_wood 4",
+	recipe = {{"naturalbiomes:alpine2_trunk"}}
 })
 
-minetest.register_node("naturalbiomes:alppine2_leaves", {
+minetest.register_node("naturalbiomes:alpine2_leaves", {
   description = S("Jack Pine Leaves"),
   drawtype = "allfaces_optional",
   waving = 1,
@@ -320,13 +325,13 @@ minetest.register_node("naturalbiomes:alppine2_leaves", {
     items = {
       {
         -- player will get sapling with 1/50 chance
-        items = {'naturalbiomes:alppine2_sapling'},
+        items = {'naturalbiomes:alpine2_sapling'},
         rarity = 15,
       },
       {
         -- player will get leaves only if he get no saplings,
         -- this is because max_items is 1
-        items = {'naturalbiomes:alppine2_leaves'},
+        items = {'naturalbiomes:alpine2_leaves'},
       }
     }
   },
@@ -335,7 +340,7 @@ minetest.register_node("naturalbiomes:alppine2_leaves", {
   after_place_node = default.after_place_leaves,
 })
 
-minetest.register_node("naturalbiomes:alppine2_sapling", {
+minetest.register_node("naturalbiomes:alpine2_sapling", {
   description = S("Jack Pine Sapling"),
   drawtype = "plantlike",
   tiles = {"naturalbiomes_alpine_pine2_sapling.png"},
@@ -344,7 +349,7 @@ minetest.register_node("naturalbiomes:alppine2_sapling", {
   paramtype = "light",
   sunlight_propagates = true,
   walkable = false,
-  on_timer = grow_new_alppine2_tree,
+  on_timer = grow_new_alpine2_tree,
   selection_box = {
     type = "fixed",
     fixed = {-4 / 16, -0.5, -4 / 16, 4 / 16, 7 / 16, 4 / 16}
@@ -359,7 +364,7 @@ minetest.register_node("naturalbiomes:alppine2_sapling", {
 
   on_place = function(itemstack, placer, pointed_thing)
     itemstack = default.sapling_on_place(itemstack, placer, pointed_thing,
-      "naturalbiomes:alppine2_sapling",
+      "naturalbiomes:alpine2_sapling",
 			-- minp, maxp to be checked, relative to sapling pos
 			{x = -1, y = 0, z = -1},
 			{x = 1, y = 1, z = 1},
@@ -373,7 +378,7 @@ minetest.register_node("naturalbiomes:alppine2_sapling", {
 
     stairs.register_stair_and_slab(
       "naturalbiomes_alpine_pine2_wood",
-      "naturalbiomes:alppine2_wood",
+      "naturalbiomes:alpine2_wood",
       {choppy = 2, oddly_breakable_by_hand = 1, flammable = 3},
       {"naturalbiomes_alpine_pine2_wood.png"},
       S("Jack Pine Stair"),
@@ -383,7 +388,7 @@ minetest.register_node("naturalbiomes:alppine2_sapling", {
 
     stairs.register_stair_and_slab(
       "naturalbiomes_alpine_pine2_trunk",
-      "naturalbiomes:alppine2_trunk",
+      "naturalbiomes:alpine2_trunk",
       {choppy = 2, oddly_breakable_by_hand = 1, flammable = 3},
       {"naturalbiomes_alpine_pine2_trunk_top.png", "naturalbiomes_alpine_pine2_trunk_top.png", "naturalbiomes_alpine_pine2_trunk.png"},
       S("Jack Pine Trunk Stair"),
@@ -392,11 +397,11 @@ minetest.register_node("naturalbiomes:alppine2_sapling", {
     )
 
   doors.register_fencegate(
-    "naturalbiomes:gate_alppine2_wood",
+    "naturalbiomes:gate_alpine2_wood",
     {
       description = S("Jack Pine Wood Fence Gate"),
       texture = "naturalbiomes_alpine_pine2_wood.png",
-      material = "naturalbiomes:alppine2_wood",
+      material = "naturalbiomes:alpine2_wood",
       groups = {choppy = 3, oddly_breakable_by_hand = 2, flammable = 3},
       sounds = default.node_sound_wood_defaults()
     }
@@ -410,7 +415,7 @@ default.register_fence(
     texture = "naturalbiomes_pine2_fence_wood.png",
     inventory_image = "default_fence_overlay.png^naturalbiomes_alpine_pine2_wood.png^default_fence_overlay.png^[makealpha:255,126,126",
     wield_image = "default_fence_overlay.png^naturalbiomes_alpine_pine2_wood.png^default_fence_overlay.png^[makealpha:255,126,126",
-    material = "naturalbiomes:alppine2_wood",
+    material = "naturalbiomes:alpine2_wood",
     groups = {choppy = 2, oddly_breakable_by_hand = 2, flammable = 2},
     sounds = default.node_sound_wood_defaults()
   }
@@ -425,7 +430,7 @@ default.register_fence_rail(
       "default_fence_rail_overlay.png^[makealpha:255,126,126",
     wield_image = "default_fence_rail_overlay.png^naturalbiomes_alpine_pine2_wood.png^" ..
       "default_fence_rail_overlay.png^[makealpha:255,126,126",
-    material = "naturalbiomes:alppine2_wood",
+    material = "naturalbiomes:alpine2_wood",
     groups = {choppy = 2, oddly_breakable_by_hand = 2, flammable = 2},
     sounds = default.node_sound_wood_defaults()
   }
@@ -444,7 +449,7 @@ local function grow_new_outback_bush(pos)
 	end
 minetest.remove_node(pos)
 	minetest.place_schematic({x = pos.x - 2, y = pos.y - 0, z = pos.z - 2}, modpath.."/schematics/naturalbiomes_alpine_cowberrybush.mts", "0", nil, false)
-end 
+end
 
 minetest.register_node("naturalbiomes:alpine_cowberrybush_stem", {
 	description = S("Cowberry Bush Stem"),
@@ -479,7 +484,7 @@ minetest.register_node("naturalbiomes:alpine_cowberrybush_leaves", {
 	},
 	sounds = default.node_sound_leaves_defaults(),
 
-	after_place_node = after_place_leaves,
+	after_place_node = default.after_place_leaves,
 })
 
 minetest.register_node("naturalbiomes:alpine_cowberrybush_sapling", {
@@ -767,8 +772,8 @@ minetest.register_node("naturalbiomes:alpine_edelweiss", {
 		deco_type = "simple",
 		place_on = {
 			"naturalbiomes:alpine_litter",
-			"naturalbiomes:alppine1_leaves",
-			"naturalbiomes:alppine2_leaves",
+			"naturalbiomes:alpine1_leaves",
+			"naturalbiomes:alpine2_leaves",
 		},
 		sidelen = 16,
 		noise_params = {

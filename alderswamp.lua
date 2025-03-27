@@ -124,9 +124,8 @@ local function grow_new_alder_tree(pos)
 		minetest.get_node_timer(pos):start(math.random(240, 600))
 		return
 	end
-minetest.remove_node(pos)
+	minetest.remove_node(pos)
 	minetest.place_schematic({x = pos.x - 3, y = pos.y - 0, z = pos.z - 3}, modpath.."/schematics/naturalbiomes_aldertree_0_270.mts", "0", nil, false)
-
 end
 
 -- alder trunk

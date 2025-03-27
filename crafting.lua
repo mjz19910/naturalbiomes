@@ -67,7 +67,7 @@ local S = minetest.get_translator("naturalbiomes")
 walls.register(":naturalbiomes:alpine_brick_wall", S"Alpine Brick Wall", "naturalbiomes_alpine_rock_brick.png",
 		"naturalbiomes:alpine_brick_wall", default.node_sound_stone_defaults())
 
---[[walls.register(":naturalbiomes:bamboo_brick_wall", S"Bambooforest Wall", "naturalbiomes_bambooforest_rock_brick.png",
+--[[walls.register(":naturalbiomes:bamboo_brick_wall", S"Bamboo Forest Wall", "naturalbiomes_bambooforest_rock_brick.png",
 		"naturalbiomes:bamboo_brick_wall", default.node_sound_stone_defaults())]]
 
 walls.register(":naturalbiomes:med_brick_wall", S"Mediterranean Wall", "naturalbiomes_mediterran_rock_brick.png",
@@ -100,7 +100,7 @@ minetest.register_node("naturalbiomes:alpine_brick", {
 })
 
 --[[minetest.register_node("naturalbiomes:bamboo_brick", {
-	description = S("Bambooforest Brick"),
+	description = S("Bamboo Forest Brick"),
 	tiles = {"naturalbiomes_bambooforest_rock_brick.png"},
 	is_ground_content = false,
 	groups = {cracky = 3, stone = 2},
@@ -116,7 +116,7 @@ minetest.register_node("naturalbiomes:alpine_brick", {
 })]]
 
 minetest.register_node("naturalbiomes:med_brick", {
-	description = S("Meditteranean Brick"),
+	description = S("Mediterranean Brick"),
 	tiles = {"naturalbiomes_mediterran_rock_brick.png"},
 	is_ground_content = false,
 	groups = {cracky = 3, stone = 2},
@@ -332,8 +332,8 @@ doors.register_trapdoor("naturalbiomes:alpine_trapdoor", {
 minetest.register_craft({
 	output = "naturalbiomes:alpine_trapdoor 2",
 	recipe = {
-		{"naturalbiomes:alppine1_wood", "naturalbiomes:alppine1_wood", "naturalbiomes:alppine1_wood"},
-		{"naturalbiomes:alppine1_wood", "naturalbiomes:alppine1_trunk", "naturalbiomes:alppine1_wood"},
+		{"naturalbiomes:alpine1_wood", "naturalbiomes:alpine1_wood", "naturalbiomes:alpine1_wood"},
+		{"naturalbiomes:alpine1_wood", "naturalbiomes:alpine1_trunk", "naturalbiomes:alpine1_wood"},
 	}
 })
 
@@ -345,9 +345,9 @@ doors.register("naturalbiomes_alpine_door", {
     gain_open = 0.06,
     gain_close = 0.13,
 	recipe = {
-		{"naturalbiomes:alppine1_wood", "naturalbiomes:alppine1_wood"},
-		{"naturalbiomes:alppine1_trunk", "naturalbiomes:alppine1_trunk"},
-		{"naturalbiomes:alppine1_wood", "naturalbiomes:alppine1_wood"},
+		{"naturalbiomes:alpine1_wood", "naturalbiomes:alpine1_wood"},
+		{"naturalbiomes:alpine1_trunk", "naturalbiomes:alpine1_trunk"},
+		{"naturalbiomes:alpine1_wood", "naturalbiomes:alpine1_wood"},
 	} 
 })
 
@@ -366,8 +366,8 @@ doors.register_trapdoor("naturalbiomes:alpine2_trapdoor", {
 minetest.register_craft({
 	output = "naturalbiomes:alpine2_trapdoor 2",
 	recipe = {
-		{"naturalbiomes:alppine2_wood", "naturalbiomes:alppine2_wood", "naturalbiomes:alppine2_wood"},
-		{"naturalbiomes:alppine2_wood", "naturalbiomes:alppine2_trunk", "naturalbiomes:alppine2_wood"},
+		{"naturalbiomes:alpine2_wood", "naturalbiomes:alpine2_wood", "naturalbiomes:alpine2_wood"},
+		{"naturalbiomes:alpine2_wood", "naturalbiomes:alpine2_trunk", "naturalbiomes:alpine2_wood"},
 	}
 })
 
@@ -379,9 +379,9 @@ doors.register("naturalbiomes_alpine2_door", {
     gain_open = 0.06,
     gain_close = 0.13,
 	recipe = {
-		{"naturalbiomes:alppine2_wood", "naturalbiomes:alppine2_wood"},
-		{"naturalbiomes:alppine2_trunk", "naturalbiomes:alppine2_trunk"},
-		{"naturalbiomes:alppine2_wood", "naturalbiomes:alppine2_wood"},
+		{"naturalbiomes:alpine2_wood", "naturalbiomes:alpine2_wood"},
+		{"naturalbiomes:alpine2_trunk", "naturalbiomes:alpine2_trunk"},
+		{"naturalbiomes:alpine2_wood", "naturalbiomes:alpine2_wood"},
 	} 
 })
 

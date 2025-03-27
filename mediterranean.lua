@@ -6,9 +6,11 @@ local mg_name = minetest.get_mapgen_setting("mg_name")
 
 minetest.register_node("naturalbiomes:mediterran_litter", {
 	description = S("Mediterranean litter with grass"),
-	tiles = {"naturalbiomes_mediterran_litter.png", "default_dirt.png",
-		{name = "default_dirt.png^naturalbiomes_mediterran_litte_side.png",
-			tileable_vertical = false}},
+	tiles = {
+		"naturalbiomes_mediterran_litter.png",
+		"default_dirt.png",
+		{name = "default_dirt.png^naturalbiomes_mediterran_litter_side.png", tileable_vertical = false}
+	},
 	groups = {crumbly = 3, soil = 1, spreading_dirt_type = 1},
 	drop = "default:dirt",
 	sounds = default.node_sound_dirt_defaults({
@@ -70,7 +72,7 @@ local function grow_new_olive_tree(pos)
 	end
 minetest.remove_node(pos)
 	minetest.place_schematic({x = pos.x - 5, y = pos.y - 0, z = pos.z - 5}, modpath.."/schematics/naturalbiomes_olive_tree2_0_90.mts", "0", nil, false)
-end 
+end
 
 -- olive trunk
 minetest.register_node("naturalbiomes:olive_trunk", {
@@ -201,7 +203,7 @@ default.register_fence(
   "naturalbiomes:fence_olive_wood",
   {
     description = S("Olive Fence"),
-    texture = "naturalbiomes_olive_fence_woode.png",
+    texture = "naturalbiomes_olive_fence_wooden.png",
     inventory_image = "default_fence_overlay.png^naturalbiomes_mediterran_olive_wood.png^default_fence_overlay.png^[makealpha:255,126,126",
     wield_image = "default_fence_overlay.png^naturalbiomes_mediterran_olive_wood.png^default_fence_overlay.png^[makealpha:255,126,126",
     material = "naturalbiomes:olive_wood",
@@ -214,7 +216,7 @@ default.register_fence_rail(
   "naturalbiomes:fence_rail_olive_wood",
   {
     description = S("Olive Fence Rail"),
-    texture = "naturalbiomes_olive_fence_woode.png",
+    texture = "naturalbiomes_olive_fence_wooden.png",
     inventory_image = "default_fence_rail_overlay.png^naturalbiomes_mediterran_olive_wood.png^" ..
       "default_fence_rail_overlay.png^[makealpha:255,126,126",
     wield_image = "default_fence_rail_overlay.png^naturalbiomes_mediterran_olive_wood.png^" ..
@@ -253,7 +255,7 @@ local function grow_new_pine_tree(pos)
 	end
 minetest.remove_node(pos)
 	minetest.place_schematic({x = pos.x - 9, y = pos.y - 0, z = pos.z - 8}, modpath.."/schematics/naturalbiomes_med_pinetree_0_90.mts", "0", nil, false)
-end 
+end
 
 
 -- pine trunk
@@ -384,7 +386,7 @@ default.register_fence(
   "naturalbiomes:fence_pine_wood",
   {
     description = S("Mediterranean Pine Fence"),
-    texture = "naturalbiomes_medpine_fence_woode.png",
+    texture = "naturalbiomes_medpine_fence_wooden.png",
     inventory_image = "default_fence_overlay.png^naturalbiomes_mediterran_pine_wood.png^default_fence_overlay.png^[makealpha:255,126,126",
     wield_image = "default_fence_overlay.png^naturalbiomes_mediterran_pine_wood.png^default_fence_overlay.png^[makealpha:255,126,126",
     material = "naturalbiomes:pine_wood",
@@ -397,7 +399,7 @@ default.register_fence_rail(
   "naturalbiomes:fence_rail_pine_wood",
   {
     description = S("Mediterranean Pine Fence Rail"),
-    texture = "naturalbiomes_medpine_fence_woode.png",
+    texture = "naturalbiomes_medpine_fence_wooden.png",
     inventory_image = "default_fence_rail_overlay.png^naturalbiomes_mediterran_pine_wood.png^" ..
       "default_fence_rail_overlay.png^[makealpha:255,126,126",
     wield_image = "default_fence_rail_overlay.png^naturalbiomes_mediterran_pine_wood.png^" ..
@@ -448,31 +450,31 @@ local function grow_new_cypress_tree(pos)
 		minetest.get_node_timer(pos):start(math.random(240, 600))
 		return
 	end
-minetest.remove_node(pos)
+	minetest.remove_node(pos)
 	minetest.place_schematic({x = pos.x - 2, y = pos.y - 0, z = pos.z - 2}, modpath.."/schematics/naturalbiomes_cypress_0_90.mts", "0", nil, false)
-end 
+end
 
 
-	minetest.register_decoration({
-		name = "naturalbiomes:med_bush",
-		deco_type = "schematic",
-		place_on = {"naturalbiomes:mediterran_litter"},
-    place_offset_y = 1,
-		sidelen = 16,
-		noise_params = {
-offset = -0.004,
-			scale = 0.02,
-			spread = {x = 100, y = 100, z = 100},
-			seed = 3876,
-			octaves = 3,
-			persist = 0.4,
-		},
-		biomes = {"naturalbiomes:mediterranean"},
-		y_max = 31000,
-		y_min = 3,
-		schematic = minetest.get_modpath("naturalbiomes") .. "/schematics/naturalbiomes_cypress_0_90.mts",
-		flags = "place_center_x, place_center_z",
-	})
+minetest.register_decoration({
+	name = "naturalbiomes:med_bush",
+	deco_type = "schematic",
+	place_on = {"naturalbiomes:mediterran_litter"},
+	place_offset_y = 1,
+	sidelen = 16,
+	noise_params = {
+		offset = -0.004,
+		scale = 0.02,
+		spread = {x = 100, y = 100, z = 100},
+		seed = 3876,
+		octaves = 3,
+		persist = 0.4,
+	},
+	biomes = {"naturalbiomes:mediterranean"},
+	y_max = 31000,
+	y_min = 3,
+	schematic = minetest.get_modpath("naturalbiomes") .. "/schematics/naturalbiomes_cypress_0_90.mts",
+	flags = "place_center_x, place_center_z",
+})
 
 minetest.register_node("naturalbiomes:med_bush_stem", {
 	description = S("Cypress Bush Stem"),
@@ -494,7 +496,7 @@ minetest.register_node("naturalbiomes:med_bush_stem", {
 minetest.register_node("naturalbiomes:med_bush_leaves", {
 	description = S("Cypress Bush Leaves"),
 	drawtype = "allfaces_optional",
-	tiles = {"naturalbiomes_mediterran_cypress_leavese.png"},
+	tiles = {"naturalbiomes_mediterran_cypress_leaves.png"},
 	paramtype = "light",
 	groups = {snappy = 3, flammable = 2, leaves = 1, winleafdecay = 3},
 	drop = {
@@ -506,7 +508,7 @@ minetest.register_node("naturalbiomes:med_bush_leaves", {
 	},
 	sounds = default.node_sound_leaves_defaults(),
 
-	after_place_node = after_place_leaves,
+	after_place_node = default.after_place_leaves,
 })
 
 minetest.register_node("naturalbiomes:med_bush_sapling", {
